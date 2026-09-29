@@ -1,0 +1,29 @@
+{
+  "name": "knot-tui",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.15"
+  },
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "tui": "tsx packages/tui/src/main.tsx",
+    "web": "next dev packages/web --webpack -H 127.0.0.1",
+    "knot": "tsx packages/cli/src/main.ts",
+    "preview": "tsx scripts/preview.tsx",
+    "check": "tsx scripts/check.tsx",
+    "smoke": "tsx scripts/smoke-web.ts",
+    "test": "tsx --test packages/core/test/*.test.ts packages/cli/test/*.test.ts packages/tui/test/*.test.ts && tsx --tsconfig packages/web/tsconfig.json --test packages/web/test/*.test.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json && next typegen packages/web --webpack && tsc --noEmit -p packages/web/tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

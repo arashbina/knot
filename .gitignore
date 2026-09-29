@@ -1,0 +1,18 @@
+node_modules/
+# The default vault (real task data), not the web app's app/tasks/ routes.
+/tasks/
+*.log
+.DS_Store
+.next/
+next-env.d.ts
+*.tsbuildinfo
+coverage/
+.env*
+# Local agent notes and config, not published.
+/.claude/
+/CLAUDE.md
+# Written by `next dev` on every run.
+packages/web/CLAUDE.md
+packages/web/AGENTS.md
+.vscode/
+.idea/

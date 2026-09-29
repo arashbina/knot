@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+SELF=$0
+while [ -L "$SELF" ]; do
+  LINK=$(readlink "$SELF")
+  case $LINK in
+    /*) SELF=$LINK ;;
+    *) SELF=$(dirname "$SELF")/$LINK ;;
+  esac
+done
+ROOT=$(cd "$(dirname "$SELF")/.." && pwd -P)
+# Not KNOT_DIR: exporting that here would shadow the config's [vault] dir.
+# The CLI falls back to $KNOT_ROOT/tasks after $KNOT_DIR and the config.
+export KNOT_ROOT="$ROOT"
+# Claims made outside Claude Code are tied to the calling shell, and tsx puts a wrapper
+# process between it and the CLI. Always overwrite: an inherited value names someone else.
+export KNOT_CALLER_PID=$PPID
+exec "$ROOT/node_modules/.bin/tsx" "$ROOT/packages/cli/src/main.ts" "$@"

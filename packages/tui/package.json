@@ -1,0 +1,12 @@
+{
+  "name": "@knot-tui/tui",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@knot-tui/core": "^0.1.0",
+    "ink": "^7.1.1",
+    "react": "^19.3.0"
+  }
+}

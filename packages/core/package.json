@@ -1,0 +1,15 @@
+{
+  "name": "@knot-tui/core",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "chokidar": "^5.0.0",
+    "gray-matter": "^4.0.3",
+    "smol-toml": "^1.9.0"
+  }
+}

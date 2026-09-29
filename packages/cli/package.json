@@ -1,0 +1,10 @@
+{
+  "name": "@knot-tui/cli",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@knot-tui/core": "^0.1.0"
+  }
+}
